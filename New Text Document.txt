@@ -1,0 +1,2 @@
+install sqlite-net-pcl
+install pclstorage.ifolder
