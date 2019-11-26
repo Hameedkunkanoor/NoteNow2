@@ -17,7 +17,7 @@ namespace notenow4.Core.ViewModels
         {
             this.navigationService = navigationService;
         }
-        List<Notes> notesList;
+       public List<Notes> notesList;
         public List<Notes> NotesList
         {
             get { return notesList; }
@@ -30,8 +30,9 @@ namespace notenow4.Core.ViewModels
         public override async void ViewAppeared()
         {
             base.ViewAppeared();
-
+            NotesList = new List<Notes>() { };
             NotesList = await Application.Database.GetNotes();
+
          }
     }
 }

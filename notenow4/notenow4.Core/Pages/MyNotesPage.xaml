@@ -30,14 +30,7 @@
                 <RowDefinition Height="0.2*"/>
                 <RowDefinition Height="0.8*"/>
             </Grid.RowDefinitions>
-            <ListView ItemsSource="{Binding NotesList}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Label Text="{Binding NotesList,Mode=TwoWay}"/>
-                    </DataTemplate>
-                        
-                </ListView.ItemTemplate>
-            </ListView>
+           
         </Grid>
     </StackLayout>
 </mvx:MvxContentPage>

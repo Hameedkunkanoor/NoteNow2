@@ -8,6 +8,8 @@ using MvvmCross.Platform;
 using System.IO;
 using Xamarin.Forms;
 using System;
+using Application = Android.App.Application;
+
 namespace notenow4.Droid
 {
     [Activity(Label = "MainActivity", ScreenOrientation = ScreenOrientation.Portrait)]
@@ -25,6 +27,8 @@ namespace notenow4.Droid
             Forms.Init(this, bundle);
 
             var formsPresenter = (MvxFormsPagePresenter)Mvx.Resolve<IMvxAndroidViewPresenter>();
+
+            // LoadApplication(new formsPresenter.App(dbPath, new SQLitePlatformAndroid()));
             LoadApplication(formsPresenter.FormsApplication);
         }
     }
@@ -33,7 +37,7 @@ namespace notenow4.Droid
         public static string GetLocalFilePath(string filename)
         {
             string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-          //  string path = System.Environment.GetFolderPath(Android.OS.Environment.SpecialFolder.Personal);
+            //  string path = System.Environment.GetFolderPath(Android.OS.Environment.SpecialFolder.Personal);
             string dbPath = Path.Combine(path, filename);
 
             CopyDatabaseIfNotExists(dbPath);
@@ -43,20 +47,27 @@ namespace notenow4.Droid
 
         private static void CopyDatabaseIfNotExists(string dbPath)
         {
-            if (!File.Exists(dbPath))
+            try
             {
-                using (var br = new BinaryReader(System.Net.Mime.MediaTypeNames.Application.Context.Assets.Open("Notes.db3")))
+                if (!File.Exists(dbPath))
                 {
-                    using (var bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
+                    using (var br = new BinaryReader(Application.Context.Assets.Open("Notes.db3")))
                     {
-                        byte[] buffer = new byte[2048];
-                        int length = 0;
-                        while ((length = br.Read(buffer, 0, buffer.Length)) > 0)
+                        using (var bw = new BinaryWriter(new FileStream(dbPath, FileMode.Create)))
                         {
-                            bw.Write(buffer, 0, length);
+                            byte[] buffer = new byte[2048];
+                            int length = 0;
+                            while ((length = br.Read(buffer, 0, buffer.Length)) > 0)
+                            {
+                                bw.Write(buffer, 0, length);
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }
