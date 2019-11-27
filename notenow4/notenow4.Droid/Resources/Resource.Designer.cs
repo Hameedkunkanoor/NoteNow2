@@ -5366,6 +5366,9 @@ namespace notenow4.Droid
 			// aapt resource value: 0x7F0D0000
 			public const int ic_launcher = 2131558400;
 			
+			// aapt resource value: 0x7F0D0001
+			public const int notepad = 2131558401;
+			
 			static Mipmap()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

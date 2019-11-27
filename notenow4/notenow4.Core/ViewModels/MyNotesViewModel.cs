@@ -34,5 +34,5 @@ namespace notenow4.Core.ViewModels
             NotesList = await Application.Database.GetNotes();
 
          }
-    }
+    } 
 }

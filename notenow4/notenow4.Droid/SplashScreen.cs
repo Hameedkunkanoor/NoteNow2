@@ -6,9 +6,9 @@ using Xamarin.Forms;
 namespace notenow4.Droid
 {
     [Activity(
-        Label = "notenow4.Droid"
+        Label = "NoteNow"
         , MainLauncher = true
-        , Icon = "@mipmap/ic_launcher"
+        , Icon = "@mipmap/notepad"
         , Theme = "@style/Theme.Splash"
         , NoHistory = true
         , ScreenOrientation = ScreenOrientation.Portrait)]
