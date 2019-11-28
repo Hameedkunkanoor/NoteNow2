@@ -9,12 +9,21 @@ namespace notenow4.Core.Services
 {
    public class DBOperations
     {
+        
         readonly SQLiteAsyncConnection _database;
 
         public DBOperations(string dbPath)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Notes>().Wait();
+            try
+            {
+                _database = new SQLiteAsyncConnection(dbPath);
+                //  if(_database.Table()
+                _database.CreateTableAsync<Notes>().Wait();
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public Task<List<Notes>> GetNotes()

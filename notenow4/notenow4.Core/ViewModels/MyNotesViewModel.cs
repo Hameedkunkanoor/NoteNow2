@@ -27,6 +27,13 @@ namespace notenow4.Core.ViewModels
                     RaisePropertyChanged(() => NotesList);
             }
         }
+        public MvxCommand<Notes> NoteListListview => new MvxCommand<Notes>(OpenSelectedNotes);
+
+        public async void OpenSelectedNotes(Notes notes)
+        {
+        //  await  navigationService.Navigate<>
+        }
+
         public override async void ViewAppeared()
         {
             base.ViewAppeared();

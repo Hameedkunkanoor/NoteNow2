@@ -22,7 +22,7 @@
             <On Platform="iOS" Value="0, 0, 0, 0" />
         </OnPlatform>
     </mvx:MvxContentPage.Padding>
-    <StackLayout BackgroundColor="#66ffcc"  Spacing="10" Orientation="Vertical" VerticalOptions="FillAndExpand" 
+    <StackLayout BackgroundColor="Orange"  Spacing="10" Orientation="Vertical" VerticalOptions="FillAndExpand" 
                  HorizontalOptions="FillAndExpand">
         <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Padding="30,0,30,20">
             <Grid.RowDefinitions>
@@ -31,10 +31,10 @@
                 <RowDefinition Height="0.2*"/>
                 <RowDefinition Height="0.2*"/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" BackgroundColor="LightYellow" Text="Add New Notes" Command="{Binding NewNotes}"/>
-            <Button Grid.Row="1" BackgroundColor="LightYellow" Text="My Notes" Command="{Binding MyNotes}"/>
-            <Button Grid.Row="2" BackgroundColor="LightYellow" Text="Add Memories"/>
-            <Button Grid.Row="3" BackgroundColor="LightYellow" Text="Save My passwords"/>
+            <Button Grid.Row="0" BackgroundColor="#66ffcc" Text="Add New Notes" Command="{Binding NewNotes}"/>
+            <Button Grid.Row="1" BackgroundColor="#66ffcc" Text="My Notes" Command="{Binding MyNotes}"/>
+            <Button Grid.Row="2" BackgroundColor="#66ffcc" Text="Add Memories"/>
+            <Button Grid.Row="3" BackgroundColor="#66ffcc" Text="Save My passwords"/>
         </Grid>
     </StackLayout>
 </mvx:MvxContentPage>

@@ -24,14 +24,13 @@
     </mvx:MvxContentPage.Padding>
     <StackLayout BackgroundColor="#66ffcc"  Spacing="10" Orientation="Vertical" VerticalOptions="FillAndExpand" 
                  HorizontalOptions="FillAndExpand">
-        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="30,0,30,20">
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="15,10,15,10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.8*"/>
+              
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <ListView ItemsSource="{Binding NotesList}"
-              
+              x:Name="NoteListListview"
               RowHeight="60">
 
                 <ListView.ItemTemplate>
@@ -42,9 +41,23 @@
                                 <Label Text="{Binding NotesText}"
                                FontAttributes="Bold" />
                                 <Label Text="{Binding Date}" />
+
+                                <Button
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.RowSpan="2"
+                                                    Grid.ColumnSpan="2"
+                                                    BackgroundColor="Transparent"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    VerticalOptions="FillAndExpand"
+                                                    Command="{Binding BindingContext.NotesSelectedCommand,
+                                                  Source={x:Reference NoteListListview}}"
+                                                    CommandParameter="{Binding .}" />
                             </StackLayout>
                         </ViewCell>
+                      
                     </DataTemplate>
+                    
                 </ListView.ItemTemplate>
 
             </ListView>
