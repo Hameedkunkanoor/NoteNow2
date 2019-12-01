@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
 using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 
@@ -13,20 +14,17 @@ namespace notenow4.Core.ViewModels
             this.navigationService = navigationService;
         }
 
-        string yourNickname = string.Empty;
 
-        public string YourNickname
+
+
+        public async override void Prepare()
         {
-            get { return yourNickname; }
-            set
-            {
-                if (SetProperty(ref yourNickname, value))
-                    RaisePropertyChanged(() => Hello);
-            }
+            base.Prepare();
+            await Task.Delay(1700);
+           await navigationService.Navigate<HomeViewModel>();
         }
 
-        public string Hello => $"Hello {YourNickname}";
 
-        public ICommand ShowAboutPageCommand => new MvxAsyncCommand(() => navigationService.Navigate<HomeViewModel>());
+       // public ICommand ShowAboutPageCommand => new MvxAsyncCommand(() => navigationService.Navigate<HomeViewModel>());
     }
 }

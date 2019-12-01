@@ -3,8 +3,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                     xmlns:forms="using:Xamarin.Forms"
                     xmlns:mvx="clr-namespace:MvvmCross.Forms.Core;assembly=MvvmCross.Forms"
-                    x:Class="notenow4.Core.Pages.HomePage" Title="Welcome">
+                    x:Class="notenow4.Core.Pages.HomePage" Title="Welcome"
+      >
     <mvx:MvxContentPage.Resources>
+       
         <ResourceDictionary>
             <Style TargetType="Label">
                 <Setter Property="Font">

@@ -17,7 +17,7 @@ namespace notenow4.Core.Services
             try
             {
                 _database = new SQLiteAsyncConnection(dbPath);
-                //  if(_database.Table()
+               
                 _database.CreateTableAsync<Notes>().Wait();
             }
             catch(Exception ex)

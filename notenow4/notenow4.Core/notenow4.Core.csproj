@@ -63,5 +63,11 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ShowNotesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 	
 </Project>
