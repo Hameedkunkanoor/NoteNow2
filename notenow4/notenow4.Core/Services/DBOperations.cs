@@ -19,6 +19,7 @@ namespace notenow4.Core.Services
                 _database = new SQLiteAsyncConnection(dbPath);
                
                 _database.CreateTableAsync<Notes>().Wait();
+               _database.CreateTableAsync<Memories>().Wait();
             }
             catch(Exception ex)
             {
@@ -26,6 +27,10 @@ namespace notenow4.Core.Services
             }
         }
 
+        public Task<List<Memories>> GetMemories()
+        {
+            return _database.Table<Memories>().ToListAsync();
+        }
         public Task<List<Notes>> GetNotes()
         {
             return _database.Table<Notes>().ToListAsync();
@@ -38,6 +43,19 @@ namespace notenow4.Core.Services
                             .FirstOrDefaultAsync();
         }
 
+
+        public Task<int> SaveMemories(Memories memories )
+        {
+            if (memories.MemoryID != 0)
+            {
+                return _database.UpdateAsync(memories);
+            }
+            else
+            {
+                return _database.InsertAsync(memories);
+            }
+        }
+
         public Task<int> SaveNotes(Notes note)
         {
             if (note.NotesID != 0)
@@ -48,7 +66,7 @@ namespace notenow4.Core.Services
             {
                 return _database.InsertAsync(note);
             }
-        }
+        } 
 
         public Task<int> DeleteNotes(Notes note)
         {

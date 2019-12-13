@@ -15,7 +15,6 @@
     <PackageReference Include="MvvmCross.Platform" Version="5.2.1" />
     <PackageReference Include="PCLStorage" Version="1.0.2" />
     <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
-    <PackageReference Include="Xamarin.Forms" Version="2.3.4.270" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,6 +65,18 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Pages\ShowNotesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MyMemoriesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\AddMemoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

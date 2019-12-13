@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mvx:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                    xmlns:forms="using:Xamarin.Forms"
+                    xmlns:mvx="clr-namespace:MvvmCross.Forms.Core;assembly=MvvmCross.Forms"
+                BackgroundColor="White"    x:Class="notenow4.Core.Pages.MyMemoriesPage" Title="My Memories">
+    <mvx:MvxContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="Font">
+                    <OnPlatform x:TypeArguments="Font">
+                        <On Platform="Android" Value="12" />
+                        <On Platform="iOS" Value="12" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </mvx:MvxContentPage.Resources>
+    <mvx:MvxContentPage.Padding Thickness="0, 0, 0, 0">
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android" Value="0, 0, 0, 0" />
+            <On Platform="iOS" Value="0, 0, 0, 0" />
+        </OnPlatform>
+    </mvx:MvxContentPage.Padding>
+    <StackLayout BackgroundColor="#66ffcc"  Spacing="10" Orientation="Vertical" VerticalOptions="FillAndExpand" 
+                 HorizontalOptions="FillAndExpand">
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="15,10,15,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
+            <Button Text="New Memory" Command="{Binding AddNewMemory}"/>
+            <ListView ItemsSource="{Binding MemoriesList}"
+              x:Name="MemoriesListListview" Grid.Row="1"
+              RowHeight="60">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame   CornerRadius="15" OutlineColor="Red"  >
+                                <StackLayout Margin="8">
+
+                                <Label Text="{Binding MemoryText}"
+                               FontAttributes="Bold" />
+                                <Label Text="{Binding Date}" />
+
+                                <Button
+                                                    Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    Grid.RowSpan="2"
+                                                    Grid.ColumnSpan="2"
+                                                    BackgroundColor="Transparent"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    VerticalOptions="FillAndExpand"
+                                                    Command="{Binding BindingContext.NotesSelectedCommand,
+                                                  Source={x:Reference MemoriesListListview}}"
+                                                    CommandParameter="{Binding .}" />
+    </StackLayout>
+    </Frame>
+    </ViewCell>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </Grid>
+    </StackLayout>
+</mvx:MvxContentPage>

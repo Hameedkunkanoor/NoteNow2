@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mvx:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                    xmlns:forms="using:Xamarin.Forms"
+                    xmlns:mvx="clr-namespace:MvvmCross.Forms.Core;assembly=MvvmCross.Forms"
+                    x:Class="notenow4.Core.Pages.AddMemoryPage" Title="New Memory" BackgroundColor="White">
+    <mvx:MvxContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="Font">
+                    <OnPlatform x:TypeArguments="Font">
+                        <On Platform="Android" Value="12" />
+                        <On Platform="iOS" Value="12" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </mvx:MvxContentPage.Resources>
+    <mvx:MvxContentPage.Padding Thickness="0, 0, 0, 0">
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android" Value="0, 0, 0, 0" />
+            <On Platform="iOS" Value="0, 0, 0, 0" />
+        </OnPlatform>
+    </mvx:MvxContentPage.Padding>
+    <StackLayout >
+       
+        <Button HorizontalOptions="Start" BackgroundColor="LightYellow" Text="Save Notes" Command="{Binding SaveNotes}"/>
+        <Button  HorizontalOptions="End" BackgroundColor="LightYellow" Text="Delete Notes"/>
+        <Label IsVisible="{Binding IsOthers}" Text="Occasion Name"/>
+        <Frame   BackgroundColor="#8FB5BE" OutlineColor="	#139ECF"  >
+            <Picker ItemsSource="{Binding OccasionList,Mode=TwoWay}"
+                               SelectedItem="{Binding SelectedEvent,Mode=TwoWay}" ></Picker>
+        </Frame>
+
+        <Label TextColor="#139ECF" IsVisible="{Binding IsOthers}" Text="Occasion Name"/>
+        <Frame HeightRequest="45"  BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
+            <Entry HeightRequest="40" IsVisible="{Binding IsOthers}" Text="{Binding OtherOccasionName,Mode=TwoWay}"/>
+        </Frame>
+        <Frame CornerRadius="15"   BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
+            <Editor InputTransparent="False"  Text="{Binding MemoryText,Mode=TwoWay}" />
+        </Frame>
+    </StackLayout>    
+</mvx:MvxContentPage>
+
+
+
+

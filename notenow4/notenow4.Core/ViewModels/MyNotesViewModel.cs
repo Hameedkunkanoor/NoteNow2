@@ -6,7 +6,6 @@ using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using Xamarin.Forms;
 using notenow4.Core.Models;
-
 namespace notenow4.Core.ViewModels
 {
    public class MyNotesViewModel : MvxViewModel
@@ -37,7 +36,7 @@ namespace notenow4.Core.ViewModels
         public override async void ViewAppeared()
         {
             base.ViewAppeared();
-            NotesList = new List<Notes>() { };
+            NotesList = new  List<Notes>() { };
             NotesList = await Application.Database.GetNotes();
 
          }

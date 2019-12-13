@@ -64,7 +64,6 @@
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.4.0.2" />
     <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="25.4.0.2" />
     <PackageReference Include="Xamarin.Android.Support.Vector.Drawable" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Forms" Version="2.3.4.270" />
     <PackageReference Include="Xamarin.Build.Download" Version="0.4.7" />
   </ItemGroup>
   <ItemGroup>
