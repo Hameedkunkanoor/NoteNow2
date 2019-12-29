@@ -39,7 +39,7 @@
                         <ViewCell>
                             <Frame   CornerRadius="15" OutlineColor="Red"  >
                                 <StackLayout Margin="8">
-
+                                
                                 <Label Text="{Binding MemoryText}"
                                FontAttributes="Bold" />
                                 <Label Text="{Binding Date}" />

@@ -3,7 +3,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                     xmlns:forms="using:Xamarin.Forms"
                     xmlns:mvx="clr-namespace:MvvmCross.Forms.Core;assembly=MvvmCross.Forms"
-                    x:Class="notenow4.Core.Pages.AddMemoryPage" Title="New Memory" BackgroundColor="White">
+                    x:Class="notenow4.Core.Pages.AddMemoryPage"  Title="New Memory" BackgroundColor="White">
     <mvx:MvxContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
@@ -23,22 +23,48 @@
         </OnPlatform>
     </mvx:MvxContentPage.Padding>
     <StackLayout >
-       
-        <Button HorizontalOptions="Start" BackgroundColor="LightYellow" Text="Save Notes" Command="{Binding SaveNotes}"/>
-        <Button  HorizontalOptions="End" BackgroundColor="LightYellow" Text="Delete Notes"/>
-        <Label IsVisible="{Binding IsOthers}" Text="Occasion Name"/>
-        <Frame   BackgroundColor="#8FB5BE" OutlineColor="	#139ECF"  >
-            <Picker ItemsSource="{Binding OccasionList,Mode=TwoWay}"
-                               SelectedItem="{Binding SelectedEvent,Mode=TwoWay}" ></Picker>
-        </Frame>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="15,10,15,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" BorderColor="Red" HorizontalOptions="Start" BackgroundColor="Orange" Text="Save Memory" Command="{Binding SaveNotes}"/>
+            <Button Grid.Row="0" BorderColor="Red" HorizontalOptions="End" BackgroundColor="Orange" Text="Delete Memory"/>
+            <StackLayout Grid.Row="1" >
+                <Label IsVisible="{Binding IsOthers}" Text="Occasion Name"/>
+                <Frame    BackgroundColor="Orange" OutlineColor="Red" HeightRequest="45"   >
+                    <Grid>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*" />
+                        </Grid.ColumnDefinitions>
 
-        <Label TextColor="#139ECF" IsVisible="{Binding IsOthers}" Text="Occasion Name"/>
-        <Frame HeightRequest="45"  BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
-            <Entry HeightRequest="40" IsVisible="{Binding IsOthers}" Text="{Binding OtherOccasionName,Mode=TwoWay}"/>
-        </Frame>
-        <Frame CornerRadius="15"   BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
-            <Editor InputTransparent="False"  Text="{Binding MemoryText,Mode=TwoWay}" />
-        </Frame>
+                        <Image Source="dropdown.png" 
+                               Grid.Row="0"
+                               Margin="0,0,5,0"
+                               HorizontalOptions="End"
+                               Grid.Column="0" />
+
+
+
+
+                        <Picker Grid.Row="0" Grid.Column="0" ItemsSource="{Binding OccasionList,Mode=TwoWay}" SelectedItem="{Binding SelectedEvent,Mode=TwoWay}" ></Picker>
+                    </Grid>
+
+                </Frame>
+            </StackLayout>
+            <Label TextColor="#139ECF" IsVisible="{Binding IsOthers}" Text="Occasion Name"/>
+            <Frame HeightRequest="45"  BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
+                <Entry HeightRequest="40" IsVisible="{Binding IsOthers}" Text="{Binding OtherOccasionName,Mode=TwoWay}"/>
+            </Frame>
+            <Frame CornerRadius="15"   BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
+                <Editor InputTransparent="False"  Text="{Binding MemoryText,Mode=TwoWay}" />
+            </Frame>
+        </Grid>
     </StackLayout>    
 </mvx:MvxContentPage>
 

@@ -5364,10 +5364,13 @@ namespace notenow4.Droid
 		{
 			
 			// aapt resource value: 0x7F0D0000
-			public const int ic_launcher = 2131558400;
+			public const int dropdown = 2131558400;
 			
 			// aapt resource value: 0x7F0D0001
-			public const int notepad = 2131558401;
+			public const int ic_launcher = 2131558401;
+			
+			// aapt resource value: 0x7F0D0002
+			public const int notepad = 2131558402;
 			
 			static Mipmap()
 			{
