@@ -114,6 +114,7 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\MultiLineEntry.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="DebugTrace.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />

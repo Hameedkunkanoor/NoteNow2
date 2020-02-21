@@ -3,6 +3,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                     xmlns:forms="using:Xamarin.Forms"
                     xmlns:mvx="clr-namespace:MvvmCross.Forms.Core;assembly=MvvmCross.Forms"
+                    xmlns:local="clr-namespace:notenow4.Core.CustomControls"
                     x:Class="notenow4.Core.Pages.AddMemoryPage"  Title="New Memory" BackgroundColor="White">
     <mvx:MvxContentPage.Resources>
         <ResourceDictionary>
@@ -27,13 +28,12 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.2*"/>
                 <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.6*"/>
             </Grid.RowDefinitions>
             <Button Grid.Row="0" BorderColor="Red" HorizontalOptions="Start" BackgroundColor="Orange" Text="Save Memory" Command="{Binding SaveNotes}"/>
             <Button Grid.Row="0" BorderColor="Red" HorizontalOptions="End" BackgroundColor="Orange" Text="Delete Memory"/>
             <StackLayout Grid.Row="1" >
-                <Label IsVisible="{Binding IsOthers}" Text="Occasion Name"/>
+                <Label  Text="Please select Occasion Name"/>
                 <Frame    BackgroundColor="Orange" OutlineColor="Red" HeightRequest="45"   >
                     <Grid>
                         <Grid.RowDefinitions >
@@ -57,13 +57,15 @@
 
                 </Frame>
             </StackLayout>
-            <Label TextColor="#139ECF" IsVisible="{Binding IsOthers}" Text="Occasion Name"/>
-            <Frame HeightRequest="45"  BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
-                <Entry HeightRequest="40" IsVisible="{Binding IsOthers}" Text="{Binding OtherOccasionName,Mode=TwoWay}"/>
-            </Frame>
-            <Frame CornerRadius="15"   BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
-                <Editor InputTransparent="False"  Text="{Binding MemoryText,Mode=TwoWay}" />
-            </Frame>
+            <StackLayout Grid.Row="2" >
+                <Label TextColor="#139ECF" IsVisible="{Binding IsOthers}" Text="Occasion Name"/>
+                <Frame HeightRequest="45" Padding="2,2,2,2"  BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
+                    <Entry HeightRequest="40" IsVisible="{Binding IsOthers}" Text="{Binding OtherOccasionName,Mode=TwoWay}"/>
+                </Frame>
+                <Frame CornerRadius="15" Padding="2,2,2,2"  BackgroundColor="#8FB5BE" OutlineColor="#139ECF"  >
+                    <local:MultiEditor BackgroundColor="White"  Text="{Binding MemoryText,Mode=TwoWay}" />
+                </Frame>
+            </StackLayout>
         </Grid>
     </StackLayout>    
 </mvx:MvxContentPage>
